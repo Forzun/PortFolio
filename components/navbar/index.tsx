@@ -4,7 +4,6 @@ import Container from "../container";
 import Link from "next/link";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
-import { ScissorsLineDashed, SignalLow, Tally1 } from "lucide-react";
 
 export default function Navbar() {
   const navItems = [
