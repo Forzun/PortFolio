@@ -51,7 +51,7 @@ export default function Navbar() {
           duration: 0.3,
           ease: "linear",
         }}
-        className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full p-2 dark:bg-neutral-900"
+        className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full bg-white p-2 dark:bg-neutral-900"
       >
         <Image
           className="h-11 w-11 rounded-full"
@@ -73,7 +73,7 @@ export default function Navbar() {
               {hovered === index && (
                 <motion.span
                   layoutId="hovered-span"
-                  className="absolute inset-0 h-full w-full rounded-md bg-neutral-100 dark:bg-neutral-800"
+                  className="absolute inset-0 h-full w-full rounded-md bg-neutral-200 dark:bg-neutral-800"
                 />
               )}
               <span className="relative z-10">{item.title}</span>
