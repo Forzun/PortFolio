@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import LandingBlogs from "@/components/landing-blogs";
 import Projects from "@/components/projects";
 
 export default function Home() {
@@ -14,8 +15,8 @@ export default function Home() {
           opportunites to contribute my skill and grow as an engineer
         </p>
         <Projects />
+        <LandingBlogs />
       </Container>
     </div>
   );
 }
-  

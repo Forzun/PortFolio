@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import { getBlogs } from "@/utils/mdx";
 import { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export const metadata: Metadata = {
   title: "All blogs - forzun",
@@ -34,7 +34,7 @@ export default async function BlogsPage() {
                   {blog.title}
                 </h2>
                 <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm">
-                  {new Date(blog.date || " ").toLocaleDateString("en-us", {
+                  {new Date(blog.date || "").toLocaleDateString("en-us", {
                     weekday: "long",
                     year: "numeric",
                     month: "short",

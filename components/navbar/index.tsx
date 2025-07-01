@@ -1,9 +1,14 @@
 "use client";
 import Image from "next/image";
 import Container from "../container";
-import Link from "next/link";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { useState } from "react";
+import { Link } from "next-view-transitions";
 
 export default function Navbar() {
   const navItems = [
@@ -30,9 +35,12 @@ export default function Navbar() {
 
   const [scrolled, setScrolled] = useState<boolean>(false);
 
+  const y = useTransform(scrollY, [0, 100], [0, 10]);
+  const width = useTransform(scrollY, [0, 100], ["46%", "40%"]);
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     console.log("Scrolled to:", latest);
-    if (latest > 20) {
+    if (latest > 40) {
       setScrolled(true);
     } else {
       setScrolled(false);
@@ -42,24 +50,26 @@ export default function Navbar() {
   return (
     <Container>
       <motion.nav
-        animate={{
+        style={{
           boxShadow: scrolled ? "var(--shadow-custom)" : "none",
-          width: scrolled ? "40%" : "100%",
-          y: scrolled ? 10 : 0,
+          width,
+          y,
         }}
         transition={{
           duration: 0.3,
-          ease: "linear",
+          ease: "easeInOut",
         }}
         className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full bg-white p-2 dark:bg-neutral-900"
       >
-        <Image
-          className="h-11 w-11 rounded-full"
-          src="/home.jpg"
-          height="100"
-          width="100"
-          alt="Avatar"
-        />
+        <Link href="/">
+          <Image
+            className="h-11 w-11 rounded-full"
+            src="/home.jpg"
+            height="100"
+            width="100"
+            alt="Avatar"
+          />
+        </Link>
 
         <div className="flex items-center">
           {navItems.map((item, index) => (
