@@ -1,21 +1,20 @@
 import Container from "@/components/container";
 import Heading from "@/components/headng";
-import LandingBlogs from "@/components/landing-blogs";
 import Projects from "@/components/projects";
 import SubHeading from "@/components/SubHeading";
 
-export default function Home() {
+export default function AvoutPage() {
   return (
     <div className="flex min-h-screen items-start justify-start">
       <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
-        <Heading>Hello , there!</Heading>
+        <Heading>Projects</Heading>
         <SubHeading>
-          I'm a software engineer with a passion for building scalable and
-          efficient web applications, I'm currently searching for new
-          opportunites to contribute my skill and grow as an engineer
+          Full-stack developer who lives in the terminal and occasionally visits
+          Figma for fresh air. Backend-leaning, MERN-loving, and known for
+          building real-time apps that mostly work (on purpose). I break things
+          to learn and fix them like I planned it. Coffee in, clean code out.
         </SubHeading>
         <Projects />
-        <LandingBlogs />
       </Container>
     </div>
   );
