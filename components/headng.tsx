@@ -33,7 +33,7 @@ export default function Heading({
       {" "}
       <Tag
         className={cn(
-          "text-primary text-2xl font-bold tracking-tight drop-shadow-lg md:text-4xl",
+          "text-primary text-2xl font-bold px-4 tracking-tight drop-shadow-lg md:text-4xl",
           className,
         )}
       >

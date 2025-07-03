@@ -1,0 +1,54 @@
+---
+title: "Introduction to React Hooks "
+description: "Learn what is React hooks is and how to make an static website with it, why it's popular, and how to get started building modern web applications with it."
+date: "2025-01-19"
+author: "Your Name"
+---
+
+# React Hooks Deep Dive: Beyond useState and useEffect
+
+## Introduction
+
+React Hooks revolutionized how we write React components, making it easier to manage state, side effects, and more. While `useState` and `useEffect` are the most commonly used hooks, React provides several other powerful hooks, and you can even create your own custom hooks to encapsulate logic and reuse it across components.
+
+## Advanced Built-in Hooks
+
+### useContext
+
+Share data easily across your component tree without prop drilling.
+
+### useReducer
+
+Manage complex state logic in a predictable way, similar to Redux but built-in.
+
+### useMemo & useCallback
+
+Optimize performance by memoizing expensive calculations and functions.
+
+## Custom Hooks
+
+Custom hooks let you extract component logic into reusable functions. For example:
+
+```tsx
+import { useState, useEffect } from "react";
+
+function useWindowWidth() {
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return width;
+}
+```
+
+## Patterns and Best Practices
+
+- Prefix custom hooks with `use`.
+- Keep hooks pure and focused.
+- Share logic, not state.
+
+## Conclusion
+
+Mastering hooks unlocks the full power of React. Explore the docs, experiment, and build your own custom hooks to supercharge your apps.

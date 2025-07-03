@@ -66,13 +66,20 @@ export default function TimeLine() {
   ];
 
   return (
-    <div ref={ref} className="py-10">
+    <div ref={ref} className="shadow-section-inset my-6 p-7 px-4">
       {data.map((year, index) => (
         <div className="mb-4" key={index}>
           <motion.h2
             className="shadow-custom mb-2 w-fit rounded-md px-4 py-0.5 font-bold text-black"
+            initial={{
+              filter: "blur(10px)",
+              opacity: 0,
+              y: 10,
+            }}
             animate={{
               filter: isInView ? "blur(0px)" : "blur(10px)",
+              opacity: 1,
+              y: 0,
             }}
             transition={{
               duration: 0.3,
@@ -88,6 +95,10 @@ export default function TimeLine() {
               <div className="pl-4" key={index}>
                 <Step isInView={isInView} index={index}>
                   <motion.h3
+                    initial={{
+                      opacity: 0,
+                      y: -10,
+                    }}
                     animate={{
                       opacity: isInView ? 1 : 0,
                       y: isInView ? 0 : -10,
@@ -104,6 +115,10 @@ export default function TimeLine() {
                 </Step>
                 {item.description && (
                   <motion.p
+                    initial={{
+                      opacity: 0,
+                      y: -10,
+                    }}
                     animate={{
                       opacity: isInView ? 1 : 0,
                       y: isInView ? 0 : -10,
@@ -140,6 +155,10 @@ const Step = ({
 }) => {
   return (
     <motion.div
+      initial={{
+        opacity: 0,
+        y: -10,
+      }}
       animate={{
         opacity: isInView ? 1 : 0,
         y: isInView ? 0 : -10,

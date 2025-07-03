@@ -36,7 +36,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const y = useTransform(scrollY, [0, 100], [0, 10]);
-  const width = useTransform(scrollY, [0, 100], ["46%", "40%"]);
+  const width = useTransform(scrollY, [0, 100], ["43%", "39%"]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     console.log("Scrolled to:", latest);

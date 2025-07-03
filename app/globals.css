@@ -11,6 +11,10 @@
 
   --color-primary: var(--color-neutral-800);
   --color-secondary: var(--color-neutral-500);
+
+  --shadow-section-inset:
+    0px 1px 4px 0px var(--color-neutral-100) inset,
+    0px -1px 4px 0px var(--color-neutral-100) inset;
 }
 
 .dark {

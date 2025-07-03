@@ -11,12 +11,12 @@ export default async function () {
   };
 
   return (
-    <div className="">
-      <SectionHeading className="pb-4" delay={0.3}>
+    <div className="px-4 md:mb-10">
+      <SectionHeading delay={0.3}>
         Check out my Blogs
       </SectionHeading>
       <div className="flex flex-col gap-4">
-        {allBlogs.map((blog, index) => (
+        {allBlogs.slice(0, 3).map((blog, index) => (
           <MotionDiv
             key={index}
             initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
@@ -38,7 +38,7 @@ export default async function () {
                 </p>
               </div>
               <p className="text-secondary max-w-lg pt-3 text-sm md:text-sm">
-                {truncate(blog.description || " ", 150)}
+                {truncate(blog.description || " ", 100)}
               </p>
             </Link>
           </MotionDiv>
