@@ -40,7 +40,7 @@ export default async function BlogsPage({
 
   return (
     <div className="flex min-h-screen items-start justify-center">
-      <Container className="min-h-[200vh] px-10 md:pt-20 md:pb-10">
+      <Container className="min-h-screen px-10 md:pt-20 md:pb-10">
         <div className="prose mx-auto">{content}</div>
       </Container>
     </div>

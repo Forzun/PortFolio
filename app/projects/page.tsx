@@ -2,11 +2,12 @@ import Container from "@/components/container";
 import Heading from "@/components/headng";
 import Projects from "@/components/projects";
 import SubHeading from "@/components/SubHeading";
+import { projects } from "@/constants/project";
 
 export default function AvoutPage() {
   return (
     <div className="flex min-h-screen items-start justify-start">
-      <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
+      <Container className="min-h-screen p-4 md:pt-20 md:pb-10">
         <Heading>Projects</Heading>
         <SubHeading>
           Full-stack developer who lives in the terminal and occasionally visits
@@ -14,7 +15,7 @@ export default function AvoutPage() {
           building real-time apps that mostly work (on purpose). I break things
           to learn and fix them like I planned it. Coffee in, clean code out.
         </SubHeading>
-        <Projects />
+        <Projects projects={projects} />
       </Container>
     </div>
   );

@@ -6,7 +6,7 @@ import TimeLine from "@/components/TimeLine";
 export default function AvoutPage() {
   return (
     <div className="flex min-h-screen items-start justify-start">
-      <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
+      <Container className="min-h-screen p-4 md:pt-20 md:pb-10">
         <Heading>About Me</Heading>
         <SubHeading>
           Full-stack developer who lives in the terminal and occasionally visits

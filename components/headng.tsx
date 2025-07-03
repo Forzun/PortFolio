@@ -23,10 +23,11 @@ export default function Heading({
         filter: "blur(0px",
         y: 0,
       }}
+      viewport={{ once: true }}
       transition={{
         duration: 0.3,
         ease: "easeInOut",
-        delay:0.1
+        delay: 0.1,
       }}
     >
       {" "}
