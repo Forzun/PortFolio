@@ -5,7 +5,6 @@ import { motion } from "motion/react";
 export const SectionHeading = ({
   children,
   className,
-  delay,
 }: {
   children: string;
   className?: string;
