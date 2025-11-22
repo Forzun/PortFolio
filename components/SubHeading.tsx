@@ -32,7 +32,7 @@ export default function SubHeading({
     >
       <Tag
         className={cn(
-          "text-secondary md:text-md max-w-2xl px-4 pt-4 text-lg tracking-wide",
+          "text-secondary md:text-md max-w-2xl px-4 pt-4 text-lg tracking-wider",
           className,
         )}
       >
