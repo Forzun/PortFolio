@@ -8,7 +8,6 @@ export async function generateMetadata({
   params: { slug: string };
 }) {
   const frontMatter = await getBlogFrontMatterBySlug(params.slug);
-  console.log(params.slug);
 
   if (!frontMatter) {
     return {

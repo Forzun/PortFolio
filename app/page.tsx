@@ -1,6 +1,7 @@
 import Container from "@/components/container";
 import Button from "@/components/custom/button";
 import Heading from "@/components/headng";
+import Hero from "@/components/Hero";
 import LandingBlogs from "@/components/landing-blogs";
 import Projects from "@/components/projects";
 import Scales from "@/components/scales";
@@ -13,6 +14,7 @@ export default function Home() {
     <div className="flex h-full min-h-screen items-start justify-start">
       <Container className="relative min-h-screen px-8 md:pt-20 md:pb-10">
         <Scales />
+        <Hero />
         <Heading>
           <span className="text-shadow-2xl bg-linear-to-b from-neutral-900 to-neutral-600/80 bg-clip-text text-transparent">
             Hey, I&apos;m Forzun
