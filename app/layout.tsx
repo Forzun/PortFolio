@@ -42,7 +42,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${hankenGrotesk.className} relative antialiased [--pattern-fg:var(--color-neutral-950)]/5 dark:bg-neutral-700`}
+          className={`${hankenGrotesk.className} antialiased [--pattern-fg:var(--color-neutral-950)]/5 dark:bg-neutral-700 `}
         >
           <ThemeProvider
             attribute="class"
