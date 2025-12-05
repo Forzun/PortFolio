@@ -63,7 +63,7 @@ export default function Navbar() {
         <Link href="/">
           <Image
             className="h-11 w-11 rounded-full"
-            src="/home.jpg"
+            src="/winter.jpg"
             height="100"
             width="100"
             alt="Avatar"

@@ -5,10 +5,10 @@ import { SocialMedia, SocialMediaProps } from "@/constants/socialCover";
 export default function ProfileCover() {
   return (
     <div className="container mx-auto mt-20 mb-10 flex flex-col sm:flex-row md:mt-12">
-      <div className="flex h-full max-h-43 w-full max-w-44 flex-shrink-0 items-center justify-center sm:border-[1px] sm:border-neutral-200/60 sm:dark:border-neutral-800/60">
+      <div className="flex h-full max-h-52 w-full max-w-52 flex-shrink-0 items-center justify-center sm:border-[1px] sm:border-neutral-200/60 sm:dark:border-neutral-800/60">
         <div className="relative flex h-full w-full items-center justify-center rounded-full border-[1px] border-neutral-300 p-[1px] dark:border-neutral-700">
           <Avatar className="h-full w-full">
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+            <AvatarImage src="https://pbs.twimg.com/profile_images/1996497340266610688/jYBBXMRK_400x400.jpg" />
           </Avatar>
         </div>
       </div>
@@ -18,13 +18,14 @@ export default function ProfileCover() {
         <div className="relative flex w-full max-w-lg px-1 py-2">
           <div className="grid w-full grid-cols-2 items-center gap-1 text-neutral-500">
             {SocialMedia.map((media: SocialMediaProps, index) => (
-              <ProfileCoverButton
-                key={index}
-                className="col-span-1"
-                svg={media.icons}
-              >
-                {media.name}
-              </ProfileCoverButton>
+              <a key={index} href={media.href}>
+                <ProfileCoverButton
+                  className="col-span-1"
+                  svg={media.icons}
+                >
+                  {media.name}
+                </ProfileCoverButton>
+              </a>
             ))}
           </div>
         </div>

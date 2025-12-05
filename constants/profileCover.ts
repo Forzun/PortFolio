@@ -1,6 +1,7 @@
-import { ResumeIcon, githubIcon, linkedinIcon } from "@/components/Icons";
+import { githubIcon, linkedinIcon } from "@/components/Icons";
 import { AddFriendsFilled } from "@/components/Icons/Connect";
 import { Email } from "@/components/Icons/Email";
+import { CvSquare } from "@/components/Icons/Resume";
 import { X } from "@/components/Icons/Twitter";
 
 export interface ProfileCoverMediaProps { 
@@ -44,7 +45,7 @@ export const ProfileCoverMenue = {
          variant: 'primary',
          text: "Resume", 
          href:"github.com/Forzun", 
-         icon: ResumeIcon
+         icon: CvSquare
       }, 
       { 
           variant: 'default',

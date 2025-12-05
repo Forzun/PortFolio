@@ -9,7 +9,6 @@ import { Github as githubIcon } from "./Github";
 import { Linkedin as linkedinIcon } from "./Linkedin";
 import { Email as emailIcon } from "./Email";       
 import { X as twitterIcon } from "./Twitter";
-import { ReadCvLogo as ResumeIcon } from "./Resume";
 import { AddFriendsFilled as ConnectIcon } from "./Connect";
 
 export {
@@ -23,7 +22,6 @@ export {
     linkedinIcon,
     emailIcon,
     twitterIcon,
-    ResumeIcon,
     ConnectIcon
 };  
 

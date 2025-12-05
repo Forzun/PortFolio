@@ -1,8 +1,8 @@
-export const GithubSquare: React.ComponentType = () => (
+export const GithubSquare = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1536 1536"
-    className="h-12 w-15"
+    className={className}
   >
     <path
       fill="#000000"
