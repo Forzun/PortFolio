@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
       {
         hostname: "mir-s3-cdn-cf.behance.net",
       },
+      { 
+        hostname: "i.pinimg.com"
+      }
     ],
   },
 };

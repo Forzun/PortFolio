@@ -36,6 +36,7 @@ export default async function BlogsPage({
   }
 
   const { content, frontmatter } = blog;
+  console.log(frontmatter);
 
   return (
     <div className="flex min-h-screen items-start justify-center">

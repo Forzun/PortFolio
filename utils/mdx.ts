@@ -6,6 +6,10 @@ type FrontMatter = {
   title: string;
   description: string;
   date: string;
+  image?: {
+    href: string;
+    alt: string;
+  };
 };
 
 export const getSingleBlog = async (slug: string) => {
@@ -33,7 +37,7 @@ export const getSingleBlog = async (slug: string) => {
       frontmatter,
     };
   } catch (error) {
-    console.error("error");
+    console.error(error,"error");
     return null;
   }
 };
