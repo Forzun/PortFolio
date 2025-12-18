@@ -21,6 +21,7 @@ export default function ContactForm() {
     }
 
     const response = await new Promise((resolve, reject) => {
+      console.log(reject)
       setTimeout(() => {
         resolve("API call successful");
       }, 1000);

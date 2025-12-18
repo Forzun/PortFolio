@@ -5,9 +5,10 @@ import { redirect } from "next/navigation";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const frontMatter = await getBlogFrontMatterBySlug(params.slug);
+  const { slug } = await params;
+  const frontMatter = await getBlogFrontMatterBySlug(slug);
 
   if (!frontMatter) {
     return {
@@ -24,19 +25,16 @@ export async function generateMetadata({
 export default async function BlogsPage({
   params,
 }: {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }) {
-  const slug = await params;
-  const blog = await getSingleBlog(slug.slug);
+  const { slug } = await params;
+  const blog = await getSingleBlog(slug);
 
   if (!blog) {
     redirect("/blog");
   }
 
-  const { content, frontmatter } = blog;
-  console.log(frontmatter);
+  const { content } = blog;
 
   return (
     <div className="flex min-h-screen items-start justify-center">

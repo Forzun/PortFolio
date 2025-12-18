@@ -1,6 +1,9 @@
 import { promises as fs } from "fs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
+import React from "react";
+import Button from "@/components/custom/button";
+import { ReactIcon } from "@/components/Icons";
 
 type FrontMatter = {
   title: string;
@@ -10,6 +13,11 @@ type FrontMatter = {
     href: string;
     alt: string;
   };
+};
+
+// Create button variants with icons pre-configured
+const ButtonWithReactIcon = (props: { children: React.ReactNode; className?: string }) => {
+  return React.createElement(Button, { icon: ReactIcon, ...props });
 };
 
 export const getSingleBlog = async (slug: string) => {
@@ -25,7 +33,14 @@ export const getSingleBlog = async (slug: string) => {
 
     const { content, frontmatter } = await compileMDX<FrontMatter>({
       source: singleBlog,
-      options: { parseFrontmatter: true },
+      options: { 
+        parseFrontmatter: true,
+      },
+      components: {
+        Button,
+        ButtonWithReactIcon,
+        ReactIcon,
+      },
     });
 
     if (!frontmatter) {

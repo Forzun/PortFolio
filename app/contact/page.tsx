@@ -10,7 +10,7 @@ export default function Contact() {
       <Container className="min-h-screen relative px-8 md:pt-20 md:pb-10">
         <Scale />
         <Heading>Contact Me</Heading>
-        <SubHeading>I'm open to work, let's connect</SubHeading>
+        <SubHeading>I&lsquo;m open to work, let&lsquo;s connect</SubHeading>
         <ContactForm />
       </Container>
     </div>

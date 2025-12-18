@@ -3,7 +3,7 @@ import { Link } from "next-view-transitions";
 import { SectionHeading } from "./section-heading";
 import { MotionDiv } from "./motion-div";
 
-export default async function () {
+export default async function LandingBlogs() {
   const allBlogs = await getBlogs();
 
   const truncate = (str: string, length: number) => {
@@ -12,9 +12,7 @@ export default async function () {
 
   return (
     <div className="px-4 md:mb-10">
-      <SectionHeading delay={0.3}>
-        Check out my Blogs
-      </SectionHeading>
+      <SectionHeading delay={0.3}>Check out my Blogs</SectionHeading>
       <div className="flex flex-col gap-4">
         {allBlogs.slice(0, 3).map((blog, index) => (
           <MotionDiv

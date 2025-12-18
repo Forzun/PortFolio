@@ -58,12 +58,10 @@ export default function Testimonials() {
   );
 }
 
-function TestimonialsCard({ skill, logo }: { skill: string; logo?: string }) {
+function TestimonialsCard({ skill }: { skill: string; logo?: string }) {
   return (
     <div className="shadow-custom mx-1 flex h-full max-h-40 w-full max-w-40 flex-col items-center justify-between gap-10 rounded-md p-4">
       <p className="text-sm text-neutral-700">{skill}</p>
     </div>
   );
 }
-
-

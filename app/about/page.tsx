@@ -18,7 +18,7 @@ export default function AvoutPage() {
           to learn and fix them like I planned it. Coffee in, clean code out.
         </SubHeading>
         <SectionHeading className="text-secondary text-sm md:text-sm mt-7 ml-6">
-          Here's a timeline of my tech journey
+          Here&lsquo;s a timeline of my tech journey
         </SectionHeading>
         <TimeLine />
       </Container>
