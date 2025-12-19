@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import Github from "@/components/github-bar";
 import Hero from "@/components/Hero";
 import LandingBlogs from "@/components/landing-blogs";
 import ProfileCover from "@/components/landing/profile-cover";
@@ -17,6 +18,7 @@ export default function Home() {
         <Projects projects={projects.slice(0, 3)} />
         <LandingBlogs />
         <TestimonialsUpDown />
+        <Github  />
       </Container>
     </div>
   );

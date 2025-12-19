@@ -19,8 +19,6 @@ export default function BlogItems({ blog }: { blog: BlogsProps }) {
     return str.length > length ? str.substring(0, length) + "..." : str;
   };
 
-  console.log(blog.image?.href);
-
   const imageSrc = blog.image?.href ?? "/blog/intorductionToNextjs.png";
   const imageAlt = blog.image?.alt ?? "blog image";
 

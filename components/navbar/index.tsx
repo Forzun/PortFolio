@@ -64,7 +64,6 @@ export default function Navbar() {
 
   const { Width } = useWindowSize();
 
-  console.log(Width);
   let squiz = "43";
 
   if (600 > Width) {

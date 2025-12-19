@@ -4,6 +4,8 @@ import path from "path";
 import React from "react";
 import Button from "@/components/custom/button";
 import { ReactIcon } from "@/components/Icons";
+import { Back } from "@/components/Icons/backIcon";
+
 
 type FrontMatter = {
   title: string;
@@ -17,7 +19,7 @@ type FrontMatter = {
 
 // Create button variants with icons pre-configured
 const ButtonWithReactIcon = (props: { children: React.ReactNode; className?: string }) => {
-  return React.createElement(Button, { icon: ReactIcon, ...props });
+  return React.createElement(Button, { icon: Back, ...props , href:"/blog" });
 };
 
 export const getSingleBlog = async (slug: string) => {
@@ -40,6 +42,7 @@ export const getSingleBlog = async (slug: string) => {
         Button,
         ButtonWithReactIcon,
         ReactIcon,
+        Back,
       },
     });
 

@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 
 export default async function BlogsPage() {
   const allBlogs = await getBlogs();
-  console.log(allBlogs)
 
   return (
     <div className="flex min-h-screen items-start justify-center pt-15 md:pt-0">

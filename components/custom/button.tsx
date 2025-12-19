@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface ButtonProps {
   children: React.ReactNode;
   svg?: React.ReactNode;
   icon?: React.ComponentType<{ className?: string }>;
   className?: string;
+  href?: string;
 }
 
 export default function Button({
@@ -12,6 +14,7 @@ export default function Button({
   svg,
   icon,
   className,
+  href,
 }: ButtonProps) {
   const IconComponent = icon;
 
@@ -28,7 +31,7 @@ export default function Button({
         </span>
       )}
       {svg && <span className="">{svg}</span>}
-      {children}
+      {href ? (<Link className="text-neutral-600 text-sm" href={href}>back</Link>) : (children)}
     </button>
   );
 }
