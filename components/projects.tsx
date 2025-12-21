@@ -41,7 +41,7 @@ export default function Projects({
                 {project.title}
               </h2>
               <p className="max-w-xs text-sm text-neutral-500 dark:text-neutral-400">
-                {project.description}
+                {project.description.substring(0 , 70)+"..."}
               </p>
             </Link>
           </motion.div>

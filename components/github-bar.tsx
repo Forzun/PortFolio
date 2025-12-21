@@ -9,30 +9,12 @@ interface ContributionsData {
   level: number;
 }
 
-const data1 = [
-  {
-    date: "2024-06-23",
-    count: 2,
-    level: 1,
-  },
-  {
-    date: "2024-08-02",
-    count: 16,
-    level: 4,
-  },
-  {
-    date: "2024-11-29",
-    count: 11,
-    level: 3,
-  },
-];
-
 const explicitTheme = {
   light: ["hsl(0, 0%, 92%)", "firebrick"],
   dark: ["#93929d6b", "#795ea3"],
 };
 
-export default function Github({ username }: { username: string }) {
+export default function Github({ username }: { username?: string }) {
   const [data, setData] = useState<ContributionsData[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -48,11 +30,9 @@ export default function Github({ username }: { username: string }) {
       );
       const result = await response.json();
 
-      // Make sure we're getting an array
       if (Array.isArray(result.contributions)) {
         setData(result.contributions);
       } else if (result.contributions) {
-        // If it's an object, convert to array
         const contributionsArray = Object.values(result.contributions);
         setData(contributionsArray as ContributionsData[]);
       } else {
@@ -66,6 +46,8 @@ export default function Github({ username }: { username: string }) {
   };
 
   return (
-    <ActivityCalendar data={data} theme={explicitTheme} loading={loading} />
+    <div className=" my-5 px-4 py-4">
+      <ActivityCalendar data={data} theme={explicitTheme} loading={loading} />
+    </div>
   );
 }
