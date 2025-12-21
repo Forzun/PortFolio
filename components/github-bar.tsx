@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ActivityCalendar } from "react-activity-calendar";
+import dynamic from "next/dynamic";
+
+const ActivityCalendar = dynamic(
+  () => import("react-activity-calendar").then((mod) => mod.ActivityCalendar),
+  { ssr: false },
+);
 
 interface ContributionsData {
   date: string;
@@ -46,7 +51,7 @@ export default function Github({ username }: { username?: string }) {
   };
 
   return (
-    <div className=" my-5 px-4 py-4">
+    <div className="my-5 px-4 py-4">
       <ActivityCalendar data={data} theme={explicitTheme} loading={loading} />
     </div>
   );
