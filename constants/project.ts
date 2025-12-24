@@ -17,7 +17,7 @@ export const projects: Projects[] = [
     src: "https://i.pinimg.com/1200x/25/10/13/25101378287c422809c1a140b42333fa.jpg",
     description:
       "Nexus is a modern note-taking and second-brain application that helps users create, organize, and refine notes with AI-powered assistance, making knowledge management faster, smarter, and more efficient.",
-    href: "mind-mesh-ochre.vercel.app",
+    href: "https://mind-mesh-ochre.vercel.app/dashboard",
   },
   {
     title: "Whisper-AI", 
@@ -30,7 +30,7 @@ export const projects: Projects[] = [
     src: "https://i.pinimg.com/1200x/9a/e1/d6/9ae1d6cb780cf5ef2adc905975228991.jpg",
     description:
       "A chat app that allows you to chat with your friends and fmaily",
-    href: "chat-app-six-murex-76.vercel.app",
+    href: "https://chat-app-six-murex-76.vercel.app",
   },
   {
     title: "hirrd",
@@ -56,7 +56,7 @@ export const projects: Projects[] = [
     title:"MovieRating", 
     src: "https://i.pinimg.com/736x/20/9a/0a/209a0aef8cb818ca4ce95cfe005e6451.jpg", 
     description: "Just an movies rating plateform where your can see", 
-    href:"movie-app-plum-ten.vercel.app"
+    href:"https://movie-app-plum-ten.vercel.app"
   },
   {
     title:"SoftSell", 
