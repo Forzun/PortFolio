@@ -66,7 +66,7 @@ export default function Hero() {
         <span className="text-shadow-2xl bg-linear-to-b from-neutral-900 to-neutral-600/80 bg-clip-text text-transparent">
           Hey, I&apos;m Forzun
         </span>{" "}
-        <span className="text-[1.8rem] text-neutral-500">
+        <span className="text-[1.8rem] text-neutral-400/90">
           — Full-Stack Dev & Bug Fixer.
         </span>
       </Heading>

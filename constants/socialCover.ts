@@ -19,17 +19,17 @@ export const SocialMedia: SocialMediaProps[] = [
     {
         name: "Linkedin", 
         icons: Linkedin, 
-        href: "https://github.com/Forzun"
+        href: "https://www.linkedin.com/in/bhavesh-mandawriya-981a4228b/"
     },
     {
         name: "Twitter", 
         icons:  XTwitterSquare,
-        href: "https://github.com/Forzun"
+        href: "https://x.com/ForZun_"
     },
     {
         name: "Resume", 
         icons: CvSquare, 
-        href: "https://github.com/Forzun"
+        href: "https://drive.google.com/file/d/116KwEA-gsFBNsq4AGT0A6rlqf_BA8iw3/view"
     },
 ]
 

@@ -30,7 +30,7 @@ export const ProfileCoverMenue = {
             name: "linkedin",
             svg: linkedinIcon,
             tooltip: "Linkedin",
-            href: "https://github.com/Forzun",
+            href: "https://www.linkedin.com/in/bhavesh-mandawriya-981a4228b/",
          },
          { 
             name: "Email", 

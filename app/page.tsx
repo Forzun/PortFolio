@@ -9,6 +9,7 @@ import TestimonialsUpDown from "@/components/testimonials/UpDownTestimonials";
 import { projects } from "@/constants/project";
 
 export default function Home() {
+
   return (
     <div className="flex h-full min-h-screen items-start justify-start">
       <Container className="relative min-h-screen px-8 md:pt-20 md:pb-10">
@@ -18,7 +19,7 @@ export default function Home() {
         <Projects projects={projects.slice(0, 3)} />
         <LandingBlogs />
         <TestimonialsUpDown />
-        <Github  />
+        <Github />
       </Container>
     </div>
   );

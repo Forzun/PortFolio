@@ -14,15 +14,12 @@ export default function ProfileCover() {
       </div>
 
       <div className="relative flex w-full justify-end border-y-[1px] border-neutral-200/60 dark:border-neutral-800/60">
-        <div className="inner-dot absolute inset-0 z-0 h-full w-full bg-white dark:bg-neutral-900"></div>
+        <div className="inner-dot absolute inset-0 z-0 h-full w-full bg-white dark:bg-black"></div>
         <div className="relative flex w-full max-w-lg px-1 py-2">
           <div className="grid w-full grid-cols-2 items-center gap-1 text-neutral-500">
             {SocialMedia.map((media: SocialMediaProps, index) => (
               <a key={index} href={media.href}>
-                <ProfileCoverButton
-                  className="col-span-1"
-                  svg={media.icons}
-                >
+                <ProfileCoverButton className="col-span-1" svg={media.icons}>
                   {media.name}
                 </ProfileCoverButton>
               </a>

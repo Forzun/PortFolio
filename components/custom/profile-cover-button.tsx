@@ -26,9 +26,9 @@ export default function ProfileCoverButton({
           <SvgComponent className="size-15" />
         </span>
       )}
-      <div className="flex w-full items-center justify-between text-neutral-800">
-        <h1 className="relative mb-2 text-base font-light">
-          {children}{" "}
+      <div className="flex w-full items-center justify-between data:text-neutral-200 text-neutral-800">
+        <h1 className="relative mb-2 text-base font-light dark:text-neutral-white">
+          {children}{""}
           <span className="absolute bottom-0 left-0 h-[1px] w-full group-hover:bg-neutral-950"></span>
         </h1>
         <ArrowUpRight className="text-neutral-600" size={20} />
