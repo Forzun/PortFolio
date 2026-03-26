@@ -29,7 +29,7 @@ export const SocialMedia: SocialMediaProps[] = [
     {
         name: "Resume", 
         icons: CvSquare, 
-        href: "https://drive.google.com/file/d/116KwEA-gsFBNsq4AGT0A6rlqf_BA8iw3/view"
+        href: "https://drive.google.com/file/d/1k0TUVmujm58ORB-05m31pQ6KvRUjVbri/view?usp=sharing"
     },
 ]
 
