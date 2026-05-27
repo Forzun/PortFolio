@@ -3,14 +3,36 @@ export type Projects = {
   src: string;
   href: string;
   description: string;
+  video?:string
 };
 
 export const projects: Projects[] = [
   {
+    title: "nexStack",
+    src: "https://i.pinimg.com/736x/31/72/94/3172943688b1ff9ef1ddf766525b10db.jpg", 
+    description: "NexStack helps you monitor your websites in real time with instant uptime tracking, performance checks, and smart alerts.",
+    href: "https://github.com/Forzun/nexStack", 
+    video: '/videos/nexStack.mp4'
+  },
+  {
+    title: "DotDraw",
+    src: "https://i.pinimg.com/736x/a9/4d/62/a94d6233d089245688dae8f76d83f735.jpg",
+    description: "A realtime collaborative whiteboard where everyone can draw, resize, move shapes, and see live cursors instantly — just like Figma, but built from scratch", 
+    href:"https://github.com/Forzun/dotDraw",
+    video: "/videos/dotDraw.mp4"
+  },
+  {
+    title:"Context-mini", 
+    src:"https://i.pinimg.com/1200x/2a/49/3a/2a493af568995ca3ca993dcdd785de10.jpg", 
+    description: "Context-mini — Turning raw context into intelligent conversations with AI that actually understands your content, not just your prompts.",
+    href: "https://github.com/Forzun/context-mini", 
+    video: "/videos/context.mp4" 
+  },
+  {
     title: "Nexus", 
     src: "https://i.pinimg.com/736x/90/e8/b8/90e8b888eeabb2340fa4aa1676054762.jpg", 
     description:"Nexus is a modern note-taking and second-brain application that helps users create, organize, and refine notes with AI-powered assistance, making knowledge management faster, smarter, and more efficient.", 
-    href:"https://nexus-5c3w.vercel.app/"
+    href:"https://nexus-5c3w.vercel.app/",
   },
   {
     title: "MindMesh",
@@ -39,13 +61,7 @@ export const projects: Projects[] = [
       "It's like second brain app that allows you to save tweet , video , iamge etc..",
     href: "https://hirrd-ten-vert.vercel.app/",
   },
-  {
-    title: "MiniDraw",
-    src: "https://i.pinimg.com/736x/1c/36/5d/1c365d49f998a37ac6854b7a7ad9c351.jpg",
-    description:
-      "It's like second brain app that allows you to save tweet , video , iamge etc..",
-    href: "https://github.com/Forzun/minidraw",
-  },
+
   {
     title:"eclypse", 
     src: "https://i.pinimg.com/1200x/84/1c/98/841c989a4d2408b19db443e5d5b92026.jpg", 

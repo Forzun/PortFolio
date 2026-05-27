@@ -8,7 +8,7 @@ export default function ProfileCover() {
       <div className="flex h-full max-h-52 w-full max-w-52 flex-shrink-0 items-center justify-center sm:border-[1px] sm:border-neutral-200/60 sm:dark:border-neutral-800/60">
         <div className="relative flex h-full w-full items-center justify-center rounded-full border-[1px] border-neutral-300 p-[1px] dark:border-neutral-700">
           <Avatar className="h-full w-full">
-            <AvatarImage src="https://pbs.twimg.com/profile_images/1996497340266610688/jYBBXMRK_400x400.jpg" />
+            <AvatarImage className="object-cover imag" src={`/logo/Summer.jpeg`} />
           </Avatar>
         </div>
       </div>

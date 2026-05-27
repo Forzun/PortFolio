@@ -3,11 +3,12 @@ import Github from "@/components/github-bar";
 import Hero from "@/components/Hero";
 import LandingBlogs from "@/components/landing-blogs";
 import ProfileCover from "@/components/landing/profile-cover";
+
 import Projects from "@/components/projects";
 import Scales from "@/components/scales";
 import TestimonialsUpDown from "@/components/testimonials/UpDownTestimonials";
 import { projects } from "@/constants/project";
-
+ 
 export default function Home() {
 
   return (
