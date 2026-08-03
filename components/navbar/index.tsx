@@ -104,8 +104,8 @@ export default function Navbar() {
       >
         <Link className="hidden md:block" href="/">
           <Image
-            className="h-11 w-11 object-cover rounded-full"
-            src="/logo/Summer.jpeg"
+            className="h-11 w-11 rounded-full object-cover"
+            src="/logo/forzun.avif"
             height="100"
             width="100"
             alt="Avatar"

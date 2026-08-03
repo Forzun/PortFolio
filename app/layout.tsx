@@ -5,7 +5,6 @@ import Navbar from "@/components/navbar";
 import { ViewTransitions } from "next-view-transitions";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
-import { ThemeProvider } from "@/components/theme-provider";
 
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
@@ -29,16 +28,10 @@ export default function RootLayout({
         <body
           className={`${hankenGrotesk.className} antialiased [--pattern-fg:var(--color-neutral-950)]/5`}
         >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            disableTransitionOnChange
-          >
-            <Toaster position="top-center" />
-            <Navbar />
-            {children}
-            <Footer />
-          </ThemeProvider>
+          <Toaster position="top-center" />
+          <Navbar />
+          {children}
+          <Footer />
         </body>
       </html>
     </ViewTransitions>
