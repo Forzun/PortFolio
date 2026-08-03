@@ -1,8 +1,6 @@
-import { twitterIcon } from "@/components/Icons"
+import { linkedinIcon, twitterIcon } from "@/components/Icons"
 import { GithubSquare } from "@/components/Icons/GithubSquare"
-import { Linkedin } from "@/components/Icons/Linkedin"
 import { CvSquare } from "@/components/Icons/Resume"
-import { XTwitterSquare } from "@/components/Icons/TwitterSquare"
 import { IconBrandStackoverflow } from "@tabler/icons-react"
 import { MailIcon } from "lucide-react"
 
@@ -25,7 +23,7 @@ export const SocialMedia: SocialMediaProps[] = [
     },
     {
         label: "Linkedin", 
-        icons: Linkedin, 
+        icons: linkedinIcon, 
         href: "https://www.linkedin.com/in/bhavesh-mandawriya-981a4228b/",
         width: 3, 
         hover: true
