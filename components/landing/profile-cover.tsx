@@ -52,9 +52,9 @@ export default function ProfileCover() {
 
       <div className="relative flex w-full justify-end dark:border-neutral-800/60">
         <div className="absolute inset-0 z-0 h-full w-full bg-white dark:bg-black"></div>
-        <div className="relative flex w-full max-w-[75%] px-1 py-1">
+      <div className="relative flex min-w-[75%] px-1 py-1">
           <div
-            className="grid w-full grid-cols-6 gap-1 text-neutral-500"
+            className="md:grid w-full md:grid-cols-6 flex flex-wrap mt-5 justify-center gap-1  text-neutral-500"
             dir="rtl"
           >
             {SocialMedia.map((media: SocialMediaProps, index) => {
@@ -67,9 +67,10 @@ export default function ProfileCover() {
                 >
                   <Image
                     src={media.icons}
-                    alt={media.label}
-                    width={48}
-                    height={48}
+                    alt={media.label || "Social icon"}
+                    width={250}
+                    height={250}
+                    unoptimized
                     className="h-11 w-full rounded object-cover"
                   />
                 </div>

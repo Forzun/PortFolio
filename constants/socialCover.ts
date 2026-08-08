@@ -3,6 +3,7 @@ import { GithubSquare } from "@/components/Icons/GithubSquare"
 import { CvSquare } from "@/components/Icons/Resume"
 import { IconBrandStackoverflow } from "@tabler/icons-react"
 import { MailIcon } from "lucide-react"
+import randomCover from "./index"
 
 export interface SocialMediaProps {
     icons: React.ComponentType<{ className?: string | undefined }> | string
@@ -12,46 +13,45 @@ export interface SocialMediaProps {
     hover: boolean 
 }
 
-
 export const SocialMedia: SocialMediaProps[] = [
     {
         label: "Github", 
         icons: GithubSquare, 
         href: "https://github.com/Forzun",
         width: 3,
-        hover: true
+        hover: false 
     },
     {
         label: "Linkedin", 
         icons: linkedinIcon, 
         href: "https://www.linkedin.com/in/bhavesh-mandawriya-981a4228b/",
         width: 3, 
-        hover: true
+        hover: false 
     },
     {
         label: "Resume", 
         icons:  CvSquare,
-        href: "",
+        href: "https://drive.google.com/file/d/1fp7G_PIOXCwzdp1H-788eKFIYCkI8Aby/view?usp=sharing",
         width: 3, 
-        hover: true
+        hover: false
     },
     {
         label: "Twitter", 
         icons: twitterIcon, 
         href: "https://x.com/ForZun_",
         width: 2, 
-        hover: true
+        hover: false
     },
     {
         label: "Gmail", 
         icons:  MailIcon,
-        href: "https://x.com/ForZun_",
+        href: "",
         width: 2, 
-        hover: true,
+        hover: false,
     },
     {
         label: "", 
-        icons: "https://i.pinimg.com/originals/e3/7c/63/e37c634e6f4b61dcad982ee3d5d74c85.gif",
+        icons: randomCover(),
         href: "#", 
         width: 4, 
         hover: false
@@ -66,13 +66,9 @@ export const SocialMedia: SocialMediaProps[] = [
     {
         label: "Stack oveflow", 
         icons: IconBrandStackoverflow, 
-        href: "https://drive.google.com/file/d/1k0TUVmujm58ORB-05m31pQ6KvRUjVbri/view?usp=sharing",
+        href: "https://stackoverflow.com/users/26537356/forzun",
         width: 3, 
-        hover: true
+        hover: false
     },
 ]
-
-
-
-
 

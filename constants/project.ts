@@ -1,3 +1,14 @@
+import { ReactIcon, TypeScript, githubIcon } from "@/components/Icons";
+import { Express } from "@/components/Icons/Express";
+import { Prisma } from "@/components/Icons/Prisma";
+import { Turborepo } from "@/components/Icons/Turborepo";
+import { Typescript } from "@/components/Icons/TypeScript";
+import Mongodb from "@/components/Icons/mongo";
+import { NodeJs } from "@/components/Icons/node";
+import { Postsql } from "@/components/Icons/postsq";
+import Tailwindcss from "@/components/Icons/tailwindcss";
+import Websocket from "@/components/Icons/websocket";
+
 export type Projects = {
   title: string;
   src: string;
@@ -6,27 +17,38 @@ export type Projects = {
   video?:string
 };
 
+export type Skills = {
+  label: string; 
+  icon: string | (() => JSX.Element) }
+
 export const projects: Projects[] = [
+  {
+    title: "Goo",
+    src: "/projects/landing-page/goo.png", 
+    description: "Goo CLI — An open-source AI coding CLI powered by local Ollama models with RAG-based memory",
+    href: "https://github.com/Forzun/nexStack", 
+    video: '/projects/videos/nexStack.mp4'
+  },
   {
     title: "nexStack",
     src: "https://i.pinimg.com/736x/31/72/94/3172943688b1ff9ef1ddf766525b10db.jpg", 
     description: "NexStack helps you monitor your websites in real time with instant uptime tracking, performance checks, and smart alerts.",
     href: "https://github.com/Forzun/nexStack", 
-    video: '/videos/nexStack.mp4'
+    video: '/projects/videos/nexStack.mp4'
   },
   {
     title: "DotDraw",
     src: "https://i.pinimg.com/736x/a9/4d/62/a94d6233d089245688dae8f76d83f735.jpg",
     description: "A realtime collaborative whiteboard where everyone can draw, resize, move shapes, and see live cursors instantly — just like Figma, but built from scratch", 
     href:"https://github.com/Forzun/dotDraw",
-    video: "/videos/dotDraw.mp4"
+    video: "/projects/videos/dotDraw.mp4"
   },
   {
     title:"Context-mini", 
     src:"https://i.pinimg.com/1200x/2a/49/3a/2a493af568995ca3ca993dcdd785de10.jpg", 
     description: "Context-mini — Turning raw context into intelligent conversations with AI that actually understands your content, not just your prompts.",
     href: "https://github.com/Forzun/context-mini", 
-    video: "/videos/context.mp4" 
+    video: "/projects/videos/context.mp4" 
   },
   {
     title: "Nexus", 
@@ -82,44 +104,54 @@ export const projects: Projects[] = [
   }
 ];
 
-export const data = [
+
+export const skills: Skills[] = [
   {
-    skill: "JavaScript",
+    label: "JavaScript",
+    icon: Typescript 
   },
   {
-    skill: "TyepScript",
+    label: "TyepScript",
+    icon: TypeScript 
   },
   {
-    skill: "React",
+    label: "React",
+    icon:  ReactIcon 
   },
   {
-    skill: "Node.js",
+    label: "Node.js",
+    icon: NodeJs
   },
   {
-    skill: "Express",
+    label: "Express",
+    icon: Express  
   },
   {
-    skill: "Neon.tech",
+    label: "Prisma",
+    icon: Prisma 
   },
   {
-    skill: "Prisma",
+    label: "Postsql",
+    icon:  Postsql 
   },
   {
-    skill: "PostgresSQL",
+    label: "Turborepo",
+    icon:  Turborepo  
   },
   {
-    skill: "Turborepo",
+    label: "TailwindCss",
+    icon:  Tailwindcss 
   },
   {
-    skill: "TailwindCss",
+    label: "Git",
+    icon: githubIcon 
   },
   {
-    skill: "Git",
+    label: "WebSockets",
+    icon: Websocket 
   },
   {
-    skill: "WebSockets",
-  },
-  {
-    skill: "MongoDb",
+    label: "MongoDb",
+    icon: Mongodb  
   },
 ];
