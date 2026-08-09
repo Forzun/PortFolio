@@ -27,7 +27,7 @@ export const projects: Projects[] = [
     src: "/projects/landing-page/goo.png", 
     description: "Goo CLI — An open-source AI coding CLI powered by local Ollama models with RAG-based memory",
     href: "https://github.com/Forzun/nexStack", 
-    video: '/projects/videos/nexStack.mp4'
+    video: '/projects/videos/GooCli.mp4'
   },
   {
     title: "nexStack",

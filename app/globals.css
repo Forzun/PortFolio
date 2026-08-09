@@ -41,3 +41,12 @@
 .dark .inner-dot {
   background-image: radial-gradient(#374151 1px, transparent 1px);
 }
+
+
+.react-calendar {
+  width: 100% !important;
+}
+.react-calendar__tile {
+  height: 70px;
+}
+

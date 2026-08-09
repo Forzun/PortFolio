@@ -15,9 +15,11 @@ interface ContributionsData {
 }
 
 const explicitTheme = {
-  light: ["hsl(0, 0%, 92%)", "firebrick"],
-  dark: ["#93929d6b", "#795ea3"],
+  light: ['#f0f0f0', '#c4edde', '#7ac7c4', '#f73859', '#384259'],
+  dark: ['#383838', '#4D455D', '#7DB9B6', '#F5E9CF', '#E96479'],
 };
+
+``
 
 export default function Github({ username }: { username?: string }) {
   const [data, setData] = useState<ContributionsData[]>([]);
@@ -51,8 +53,8 @@ export default function Github({ username }: { username?: string }) {
   };
 
   return (
-    <div className="my-5 px-4 py-4">
-      <ActivityCalendar data={data} theme={explicitTheme} loading={loading} />
+    <div className="my-5 flex justify-center px-4 py-4 overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <ActivityCalendar data={data} loading={loading} blockMargin={2} colorScheme="light"/>
     </div>
   );
 }
