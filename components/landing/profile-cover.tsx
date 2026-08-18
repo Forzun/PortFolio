@@ -20,7 +20,7 @@ export default function ProfileCover() {
         <div className="zoom-container relative mr-5 flex h-35 w-35 items-center justify-center overflow-hidden rounded-3xl bg-neutral-400/20">
           <Image
             className="h-full w-full scale-110 rounded-4xl border border-neutral-200/80 bg-black/2 object-cover p-2 inset-shadow-xs transition-transform duration-300"
-            src={`/logo/forzun.webp`}
+            src={`/logo/forzun.avif`}
             alt="Profile"
             fill
             priority
