@@ -24,28 +24,28 @@ export type Skills = {
 export const projects: Projects[] = [
   {
     title: "Goo",
-    src: "/projects/landing-page/goo.png", 
+    src: "/projects/landing-page/goo.webp", 
     description: "Goo CLI — An open-source AI coding CLI powered by local Ollama models with RAG-based memory",
     href: "https://github.com/Forzun/nexStack", 
     video: '/projects/videos/GooCli.mp4'
   },
   {
     title: "nexStack",
-    src: "https://i.pinimg.com/736x/31/72/94/3172943688b1ff9ef1ddf766525b10db.jpg", 
+    src: "/projects/landing-page/nexStack.webp", 
     description: "NexStack helps you monitor your websites in real time with instant uptime tracking, performance checks, and smart alerts.",
     href: "https://github.com/Forzun/nexStack", 
     video: '/projects/videos/nexStack.mp4'
   },
   {
     title: "DotDraw",
-    src: "https://i.pinimg.com/736x/a9/4d/62/a94d6233d089245688dae8f76d83f735.jpg",
+    src: "/projects/landing-page/dotDraw.webp",
     description: "A realtime collaborative whiteboard where everyone can draw, resize, move shapes, and see live cursors instantly — just like Figma, but built from scratch", 
     href:"https://github.com/Forzun/dotDraw",
     video: "/projects/videos/dotDraw.mp4"
   },
   {
     title:"Context-mini", 
-    src:"https://i.pinimg.com/1200x/2a/49/3a/2a493af568995ca3ca993dcdd785de10.jpg", 
+    src:"/projects/landing-page/Context-mini.webp", 
     description: "Context-mini — Turning raw context into intelligent conversations with AI that actually understands your content, not just your prompts.",
     href: "https://github.com/Forzun/context-mini", 
     video: "/projects/videos/context.mp4" 
@@ -60,7 +60,7 @@ export const projects: Projects[] = [
     title: "MindMesh",
     src: "https://i.pinimg.com/1200x/25/10/13/25101378287c422809c1a140b42333fa.jpg",
     description:
-      "Nexus is a modern note-taking and second-brain application that helps users create, organize, and refine notes with AI-powered assistance, making knowledge management faster, smarter, and more efficient.",
+      "MindMesh might be your next second brain you can save anything you find on website and i know you haven't visited it yet so click it and goo",
     href: "https://mind-mesh-ochre.vercel.app/dashboard",
   },
   {

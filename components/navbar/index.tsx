@@ -64,12 +64,15 @@ export default function Navbar() {
 
   const { Width } = useWindowSize();
 
-  let squiz = "43";
+  let startWidth = "43%";
+  let endWidth = "39%";
 
-  if (600 > Width) {
-    squiz = "70";
-  } else {
-    squiz = "43";
+  if (Width > 0 && Width < 600) {
+    startWidth = "90%";
+    endWidth = "50%";
+  } else if (Width >= 600 && Width < 768) {
+    startWidth = "60%";
+    endWidth = "50%";
   }
 
   const [hovered, setHovered] = useState<number | null>(null);
@@ -78,7 +81,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const y = useTransform(scrollY, [0, 100], [0, 10]);
-  const width = useTransform(scrollY, [0, 100], [`${squiz}%`, "39%"]);
+  const width = useTransform(scrollY, [0, 100], [startWidth, endWidth]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 40) {
@@ -100,12 +103,12 @@ export default function Navbar() {
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-center rounded-full bg-white p-2 md:justify-between dark:bg-neutral-900"
+        className="fixed inset-x-0 top-0 z-50 mx-auto flex min-w-fit max-w-4xl items-center justify-center rounded-full bg-white p-2 md:justify-between dark:bg-neutral-900"
       >
         <Link className="hidden md:block" href="/">
           <Image
             className="h-11 w-11 rounded-full object-cover"
-            src="/logo/forzun.avif"
+            src="/logo/forzun.webp"
             height="100"
             width="100"
             alt="Avatar"
