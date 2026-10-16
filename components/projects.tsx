@@ -40,7 +40,7 @@ function ProjectCard({ project, index }: { project: Projects; index: number }) {
       onHoverEnd={handleHoverEnd}
       className="group relative mb-2"
     >
-      <Link href={project.href}>
+      <Link href={`/projects/${project.slug}`}>
         <div className="relative h-40 w-full overflow-hidden rounded-xl">
           <Image
             src={project.src}
