@@ -12,10 +12,10 @@ function ProjectCard({ project, index }: { project: Projects; index: number }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleHoverStart = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play();
-    }
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = 0;
+    video.play().catch(() => {});
   };
 
   const handleHoverEnd = () => {
@@ -64,6 +64,19 @@ function ProjectCard({ project, index }: { project: Projects; index: number }) {
               className="absolute inset-0 z-10 h-full w-full object-cover"
             />
           )}
+          {project.video && (
+            <motion.div
+              variants={{
+                rest: { opacity: 0 },
+                hover: { opacity: 1 },
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="absolute inset-0 z-20 bg-black/20 backdrop-blur-md"
+            />
+          )}
+          <span className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center text-sm font-medium tracking-wide text-white opacity-0 drop-shadow-lg transition-opacity duration-300 group-hover:opacity-100">
+            watch →
+          </span>
         </div>
         <h2 className="z-20 mt-1 mb-1 font-medium tracking-tight text-neutral-500 dark:text-neutral-400">
           {project.title}
@@ -82,7 +95,7 @@ export default function Projects({
   projects: Projects[];
 }) {
   return (
-    <div className="shadow-section-inset my-10 border-y border-neutral-100 px-4 py-4">
+    <div className="shadow-section-inset my-1 border-y border-neutral-100 px-4 py-4">
       <SectionHeading delay={0.2}>Thing i have made</SectionHeading>
       <div className="grid grid-cols-1 gap-2 py-4 md:grid-cols-3">
         {projects.map((project, index) => (

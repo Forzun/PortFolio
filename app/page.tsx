@@ -13,11 +13,11 @@ export default function Home() {
 
   return (
     <div className="flex h-full min-h-screen items-start justify-start">
-      <Container className="relative min-h-screen px-8 md:pt-20 md:pb-10">
+      <Container className="relative min-h-screen px-8 md:pt-20 md:pb-10 has-[.profile-avatar:hover]:bg-transparent">
         <Scales />
         <ProfileCover />
         <Hero />
-        <Projects projects={projects.slice(0, 3)} />
+        <Projects projects={projects.slice(0, 3)}/>
         <LandingBlogs />
         <TestimonialsUpDown />
         <Github />

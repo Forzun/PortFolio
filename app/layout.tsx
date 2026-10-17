@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk } from "next/font/google";
+import { Hanken_Grotesk , Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { ViewTransitions } from "next-view-transitions";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
 
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -26,7 +33,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${hankenGrotesk.className} antialiased [--pattern-fg:var(--color-neutral-950)]/5`}
+          className={`${hankenGrotesk.className} ${instrumentSerif.variable} antialiased [--pattern-fg:var(--color-neutral-950)]/5`}
         >
           <Toaster position="top-center" />
           <Navbar />
