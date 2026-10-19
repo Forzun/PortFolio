@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -9,21 +8,6 @@ import { projects as defaultProjects } from "@/constants/project";
 import { SectionHeading } from "./section-heading";
 
 function ProjectCard({ project, index }: { project: Projects; index: number }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleHoverStart = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.currentTime = 0;
-    video.play().catch(() => {});
-  };
-
-  const handleHoverEnd = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
@@ -34,10 +18,6 @@ function ProjectCard({ project, index }: { project: Projects; index: number }) {
         ease: "easeInOut",
       }}
       viewport={{ once: true }}
-      whileHover="hover"
-      animate="rest"
-      onHoverStart={handleHoverStart}
-      onHoverEnd={handleHoverEnd}
       className="group relative mb-2"
     >
       <Link href={`/projects/${project.slug}`}>
@@ -47,33 +27,9 @@ function ProjectCard({ project, index }: { project: Projects; index: number }) {
             alt={project.title}
             height={300}
             width={300}
-            className="h-full w-full object-cover transition duration-200 group-hover:scale-[1.02]"
+            className="h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-[1.02] group-hover:blur-[2px]"
           />
-          {project.video && (
-            <motion.video
-              ref={videoRef}
-              src={project.video}
-              muted
-              loop
-              playsInline
-              variants={{
-                rest: { opacity: 0, scale: 1.05 },
-                hover: { opacity: 1, scale: 1 },
-              }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute inset-0 z-10 h-full w-full object-cover"
-            />
-          )}
-          {project.video && (
-            <motion.div
-              variants={{
-                rest: { opacity: 0 },
-                hover: { opacity: 1 },
-              }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute inset-0 z-20 bg-black/20 backdrop-blur-md"
-            />
-          )}
+          <div className="absolute inset-0 z-20 bg-black/20 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100" />
           <span className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center text-sm font-medium tracking-wide text-white opacity-0 drop-shadow-lg transition-opacity duration-300 group-hover:opacity-100">
             watch →
           </span>
