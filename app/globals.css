@@ -10,6 +10,41 @@
   }
 }
 
+/* Shiki syntax highlighting styles */
+pre.shiki {
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-neutral-200);
+  background-color: #f6f8fa !important;
+  color: var(--shiki-light) !important;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+pre.shiki code {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: inherit;
+  color: inherit !important;
+  display: grid;
+}
+
+pre.shiki span {
+  color: var(--shiki-light);
+}
+
+.dark pre.shiki {
+  border-color: var(--color-neutral-800);
+  background-color: #0d1117 !important;
+  color: var(--shiki-dark) !important;
+}
+
+.dark pre.shiki span {
+  color: var(--shiki-dark);
+}
+
 @theme inline {
   --shadow-custom:
     0px 2px 3px -1px rgba(0, 0, 0, 0.1), 0px 1px 0px 0px rgba(25, 28, 33, 0.02),

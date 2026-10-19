@@ -7,6 +7,8 @@ import { ReactIcon } from "@/components/Icons";
 import { Back } from "@/components/Icons/backIcon";
 
 
+import { codeToHast } from "shiki";
+
 type FrontMatter = {
   title: string;
   description: string;
@@ -16,6 +18,78 @@ type FrontMatter = {
     alt: string;
   };
 };
+
+function getNodeText(node: any): string {
+  if (!node) return "";
+  if (typeof node.value === "string") return node.value;
+  if (Array.isArray(node.children)) {
+    return node.children.map(getNodeText).join("");
+  }
+  return "";
+}
+
+function rehypeShikiPlugin() {
+  return async (tree: any) => {
+    const { visit } = await import("unist-util-visit");
+    const preNodes: { node: any; index: number; parent: any }[] = [];
+
+    visit(tree, "element", (node: any, index: any, parent: any) => {
+      if (
+        node.tagName === "pre" &&
+        Array.isArray(node.children) &&
+        node.children.some((c: any) => c.tagName === "code") &&
+        typeof index === "number" &&
+        parent
+      ) {
+        preNodes.push({ node, index, parent });
+      }
+    });
+
+    for (const { node, index, parent } of preNodes) {
+      const codeNode = node.children.find((c: any) => c.tagName === "code");
+      if (!codeNode) continue;
+
+      const rawCode = getNodeText(codeNode);
+      const className = codeNode.properties?.className || [];
+      const classStr = Array.isArray(className) ? className.join(" ") : String(className);
+      const match = /language-(\w+)/.exec(classStr);
+      const lang = match ? match[1] : "text";
+
+      try {
+        const hast = await codeToHast(rawCode.trimEnd(), {
+          lang,
+          themes: {
+            light: "github-light",
+            dark: "github-dark",
+          },
+          defaultColor: false,
+        });
+
+        const newPreNode = hast.children[0];
+        if (newPreNode) {
+          parent.children[index] = newPreNode;
+        }
+      } catch {
+        try {
+          const fallbackHast = await codeToHast(rawCode.trimEnd(), {
+            lang: "text",
+            themes: {
+              light: "github-light",
+              dark: "github-dark",
+            },
+            defaultColor: false,
+          });
+          const fallbackPre = fallbackHast.children[0];
+          if (fallbackPre) {
+            parent.children[index] = fallbackPre;
+          }
+        } catch {
+          // Keep original node on error
+        }
+      }
+    }
+  };
+}
 
 // Create button variants with icons pre-configured
 const ButtonWithReactIcon = (props: { children: React.ReactNode; className?: string }) => {
@@ -37,6 +111,9 @@ export const getSingleBlog = async (slug: string) => {
       source: singleBlog,
       options: { 
         parseFrontmatter: true,
+        mdxOptions: {
+          rehypePlugins: [rehypeShikiPlugin],
+        },
       },
       components: {
         Button,
