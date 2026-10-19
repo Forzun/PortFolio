@@ -132,7 +132,7 @@ export default function Navbar() {
               )}
               <span className="relative z-10">{item.title}</span>
             </Link>
-          ))}flitter 
+          ))} 
         </div>
       </motion.nav>
     </Container>

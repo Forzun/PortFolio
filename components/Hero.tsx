@@ -106,7 +106,7 @@ export default function Hero() {
                 key={media.label}
                 className="flex items-center gap-1"
               >
-                <Tooltip side="bottom" label={media.label}>
+                <Tooltip side="top" label={media.label}>
                   <div className="flex gap-0.5 rounded-lg border border-neutral-100 p-0.5">
                     <Link
                       className={cn(
