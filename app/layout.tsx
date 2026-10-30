@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import { ViewTransitions } from "next-view-transitions";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
-
+import { SoundProvider } from "@web-kits/audio/react";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument",
@@ -35,10 +35,12 @@ export default function RootLayout({
         <body
           className={`${hankenGrotesk.className} ${instrumentSerif.variable} antialiased [--pattern-fg:var(--color-neutral-950)]/5`}
         >
-          <Toaster position="top-center" />
-          <Navbar />
-          {children}
-          <Footer />
+          <SoundProvider>
+            <Toaster position="top-center" />
+            <Navbar />
+            {children}
+            <Footer />
+          </SoundProvider>
         </body>
       </html>
     </ViewTransitions>
