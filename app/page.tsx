@@ -8,16 +8,15 @@ import Projects from "@/components/projects";
 import Scales from "@/components/scales";
 import TestimonialsUpDown from "@/components/testimonials/UpDownTestimonials";
 import { projects } from "@/constants/project";
- 
-export default function Home() {
 
+export default function Home() {
   return (
     <div className="flex h-full min-h-screen items-start justify-start">
-      <Container className="relative min-h-screen px-8 md:pt-20 md:pb-10 has-[.profile-avatar:hover]:bg-transparent">
+      <Container className="season-surface relative min-h-screen px-8 md:pt-20 md:pb-10">
         <Scales />
         <ProfileCover />
         <Hero />
-        <Projects projects={projects.slice(0, 3)}/>
+        <Projects projects={projects.slice(0, 3)} />
         <LandingBlogs />
         <TestimonialsUpDown />
         <Github />

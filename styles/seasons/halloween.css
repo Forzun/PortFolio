@@ -1,0 +1,440 @@
+[data-season="halloween"] {
+  --background: #ffffff;
+  --foreground: #f6f2e7;
+  --muted: #a89fb8;
+  --accent: #ffd60a; /* glowing yellow, same family as the pumpkin face */
+  --accent-2: #ff7a18; /* pumpkin orange */
+  --accent-foreground: #0b0910;
+  --card: #15111f;
+  --card-hover: #1c1629;
+  --border: #33284a;
+  --ring: rgba(255, 214, 10, 0.55);
+  --glow: rgba(255, 214, 10, 0.35);
+  --glow-orange: rgba(255, 122, 24, 0.3);
+  --font-display: "Creepster", "Inter", sans-serif;
+}
+
+[data-season="halloween"] body {
+  background:
+    radial-gradient(
+      900px 500px at 50% -10%,
+      rgba(255, 122, 24, 0.12),
+      transparent 70%
+    ),
+    var(--background);
+  color: var(--foreground);
+}
+
+/* Let the themed body background show through the page container */
+html[data-season="halloween"] .season-surface {
+  background: transparent;
+}
+
+[data-season="halloween"] .hero-title {
+  font-family: var(--font-display);
+  color: var(--accent);
+  text-shadow:
+    0 0 12px rgba(255, 214, 10, 0.55),
+    0 0 36px rgba(255, 122, 24, 0.45);
+}
+
+/* ---------- 1. Fog: two drifting layers ---------- */
+[data-season="halloween"] .halloween-fog {
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 20% 85%,
+      rgba(255, 122, 24, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(255, 214, 10, 0.1),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(120, 60, 200, 0.14),
+      transparent 60%
+    );
+  filter: blur(20px);
+  animation: fogMove 12s ease-in-out infinite alternate;
+}
+
+[data-season="halloween"] .halloween-fog::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 70% 70%,
+    rgba(255, 255, 255, 0.05),
+    transparent 45%
+  );
+  animation: fogMove2 18s ease-in-out infinite alternate;
+}
+
+@keyframes fogMove {
+  from {
+    transform: translateX(-30px) scale(1);
+  }
+  to {
+    transform: translateX(30px) scale(1.08);
+  }
+}
+@keyframes fogMove2 {
+  from {
+    transform: translate(40px, 10px);
+  }
+  to {
+    transform: translate(-40px, -10px);
+  }
+}
+
+/* ---------- 2. Rising embers ---------- */
+[data-season="halloween"] .halloween-embers {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+[data-season="halloween"] .halloween-embers span {
+  position: absolute;
+  bottom: -20px;
+  left: var(--x, 50%);
+  width: var(--s, 4px);
+  height: var(--s, 4px);
+  border-radius: 50%;
+  background: #ffd60a;
+  box-shadow: 0 0 10px 2px rgba(255, 150, 20, 0.9);
+  opacity: 0;
+  animation: emberRise var(--d, 9s) linear var(--delay, 0s) infinite;
+}
+@keyframes emberRise {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(30px, -50vh) scale(0.8);
+  }
+  100% {
+    transform: translate(-20px, -110vh) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* ---------- 3. Bats flying across the sky ---------- */
+[data-season="halloween"] .halloween-bat {
+  position: fixed;
+  top: var(--y, 15%);
+  left: -80px;
+  width: var(--w, 48px);
+  height: calc(var(--w, 48px) * 0.5);
+  z-index: -1;
+  pointer-events: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 32'><path fill='%23050308' d='M32 10c-2-5-6-8-12-8 3 3 3 6 2 8-4-3-10-3-16 1 5 0 8 2 9 5-3 0-6 1-8 4 5-1 9 0 12 3 2-2 4-3 5-3l2 6 2-6c1 0 3 1 5 3 3-3 7-4 12-3-2-3-5-4-8-4 1-3 4-5 9-5-6-4-12-4-16-1-1-2-1-5 2-8-6 0-10 3-12 8z'/></svg>")
+    center / contain no-repeat;
+  filter: drop-shadow(0 0 6px rgba(255, 122, 24, 0.5));
+  animation:
+    batFly var(--t, 14s) linear var(--delay, 0s) infinite,
+    batFlap 0.35s ease-in-out infinite alternate;
+}
+@keyframes batFly {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30vw, -40px);
+  }
+  50% {
+    transform: translate(60vw, 30px);
+  }
+  75% {
+    transform: translate(90vw, -30px);
+  }
+  100% {
+    transform: translate(120vw, 10px);
+  }
+}
+@keyframes batFlap {
+  from {
+    scale: 1 1;
+  }
+  to {
+    scale: 1 0.55;
+  }
+}
+
+/* ---------- 4. Giant pulsing moon ---------- */
+[data-season="halloween"] .halloween-moon {
+  position: fixed;
+  top: 6%;
+  right: 8%;
+  width: 140px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at 35% 35%, #fff6c9, #ffd60a 55%, #e09a00);
+  box-shadow:
+    0 0 60px 20px rgba(255, 214, 10, 0.25),
+    0 0 160px 60px rgba(255, 122, 24, 0.15);
+  animation: moonPulse 6s ease-in-out infinite;
+}
+@keyframes moonPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 60px 20px rgba(255, 214, 10, 0.25),
+      0 0 160px 60px rgba(255, 122, 24, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 80px 30px rgba(255, 214, 10, 0.38),
+      0 0 200px 80px rgba(255, 122, 24, 0.22);
+  }
+}
+
+/* ---------- 5. Lightning flash (screen flicker) ---------- */
+[data-season="halloween"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background: rgba(255, 240, 200, 0.1);
+  opacity: 0;
+  animation: lightning 11s linear infinite;
+}
+@keyframes lightning {
+  0%,
+  92%,
+  100% {
+    opacity: 0;
+  }
+  93% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 0.1;
+  }
+  95% {
+    opacity: 0.8;
+  }
+  97% {
+    opacity: 0;
+  }
+}
+
+/* ---------- 6. Hero title: candle flicker + glitch on hover ---------- */
+[data-season="halloween"] .hero-title {
+  animation: candleFlicker 3.5s infinite;
+}
+@keyframes candleFlicker {
+  0%,
+  19%,
+  21%,
+  62%,
+  64%,
+  100% {
+    text-shadow:
+      0 0 12px rgba(255, 214, 10, 0.6),
+      0 0 38px rgba(255, 122, 24, 0.5);
+    opacity: 1;
+  }
+  20%,
+  63% {
+    text-shadow: 0 0 4px rgba(255, 214, 10, 0.3);
+    opacity: 0.85;
+  }
+}
+
+[data-season="halloween"] .hero-title:hover {
+  animation: glitch 0.4s steps(2) infinite;
+}
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    text-shadow:
+      2px 0 #ff2e63,
+      -2px 0 #08d9d6;
+  }
+  25% {
+    transform: translate(-3px, 1px);
+  }
+  50% {
+    transform: translate(3px, -1px);
+    text-shadow:
+      -2px 0 #ff2e63,
+      2px 0 #08d9d6;
+  }
+  75% {
+    transform: translate(-1px, 2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* ---------- 7. Project cards: float, tilt and burning border ---------- */
+[data-season="halloween"] .project-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+  animation: cardFloat 6s ease-in-out infinite;
+}
+[data-season="halloween"] .project-card:nth-child(2n) {
+  animation-delay: -2s;
+}
+[data-season="halloween"] .project-card:nth-child(3n) {
+  animation-delay: -4s;
+}
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+[data-season="halloween"] .project-card:hover {
+  animation: none;
+  background: var(--card-hover);
+  border-color: var(--accent);
+  box-shadow:
+    0 0 25px var(--glow),
+    0 0 60px rgba(255, 122, 24, 0.12);
+  transform: translateY(-8px) rotate(-0.6deg) scale(1.02);
+}
+
+[data-season="halloween"] .project-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0 60%,
+    #ffd60a,
+    #ff7a18,
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: spin 3s linear infinite;
+}
+[data-season="halloween"] .project-card:hover::before {
+  opacity: 1;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes spin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* ---------- 8. Torch light that follows the mouse ---------- */
+[data-season="halloween"] .halloween-torch {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  background: radial-gradient(
+    380px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 214, 10, 0.1),
+    rgba(255, 122, 24, 0.05) 40%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+}
+
+/* ---------- 9. Buttons: pumpkin heartbeat ---------- */
+[data-season="halloween"] .btn-primary {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  box-shadow: 0 0 18px var(--glow);
+  animation: heartbeat 2.4s ease-in-out infinite;
+}
+
+[data-season="halloween"] .btn-primary:hover {
+  background: var(--accent-2);
+  box-shadow: 0 0 28px var(--glow-orange);
+}
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  8% {
+    transform: scale(1.06);
+  }
+  16% {
+    transform: scale(1);
+  }
+  24% {
+    transform: scale(1.04);
+  }
+}
+
+/* ---------- Reduced motion: turn everything off ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .halloween-fog,
+  .halloween-fog::after,
+  .halloween-embers,
+  .halloween-bat,
+  .halloween-moon,
+  .halloween-torch,
+  .christmas-snow,
+  [data-season="halloween"] body::before,
+  [data-season="halloween"] .hero-title,
+  [data-season="halloween"] .project-card,
+  [data-season="halloween"] .project-card::before,
+  [data-season="halloween"] .btn-primary {
+    animation: none !important;
+  }
+  .halloween-embers,
+  .halloween-bat,
+  .halloween-torch {
+    display: none;
+  }
+}
+
+[data-season="halloween"] a {
+  color: var(--accent);
+}
+
+[data-season="halloween"] a:hover {
+  color: var(--accent-2);
+  text-shadow: 0 0 10px var(--glow-orange);
+}
+
+[data-season="halloween"] :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+[data-season="halloween"] ::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}

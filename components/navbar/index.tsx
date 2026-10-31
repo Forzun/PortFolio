@@ -103,7 +103,7 @@ export default function Navbar() {
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="fixed inset-x-0 top-0 z-50 mx-auto flex min-w-fit max-w-4xl items-center justify-center rounded-full bg-white p-2 md:justify-between dark:bg-neutral-900"
+        className="season-navbar fixed inset-x-0 top-0 z-50 mx-auto flex min-w-fit max-w-4xl items-center justify-center rounded-full bg-white p-2 transition-colors duration-300 md:justify-between dark:bg-neutral-900"
       >
         <Link className="hidden md:block" href="/">
           <Image

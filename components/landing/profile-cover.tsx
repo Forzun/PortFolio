@@ -7,7 +7,7 @@ import PixelPumpkin from "../season/pumkin";
 import WalkingMummy from "../season/Walkingmummy";
 import WalkingVampire from "../characters/Walkingvampire";
 
-const PUMPKIN_SIZE = 100;
+const PUMPKIN_SIZE = 60;
 const PUMPKIN_ROTATION = 20;
 
 const walkingCharacters = [
@@ -115,8 +115,12 @@ export default function ProfileCover() {
     gain: 0.3,
   });
 
+  const playCrash = useSound({
+    source: { type: "sample", url: "/sound/crash.mp3" },
+    gain: 0.3,
+  });
+
   const shakePumpkin = () => {
-    playPop();
     animatePumpkin(
       pumpkinScope.current,
       { rotate: [0, -12, 12, -10, 10, -6, 6, 0] },
@@ -128,6 +132,7 @@ export default function ProfileCover() {
     if (clickTimer.current) return;
     clickTimer.current = setTimeout(() => {
       clickTimer.current = null;
+      playCrash();
       shakePumpkin();
     }, 200);
   };
@@ -137,6 +142,7 @@ export default function ProfileCover() {
       clearTimeout(clickTimer.current);
       clickTimer.current = null;
     }
+    playCrash();
     shakePumpkin();
   };
 
@@ -157,20 +163,21 @@ export default function ProfileCover() {
             />
           </div>
           <div
-            className="absolute bottom-0 -left-6 z-[100]"
+            className="pointer-events-none absolute bottom-0 -left-6 z-[100]"
             style={{ transform: `rotate(${PUMPKIN_ROTATION}deg)` }}
           >
             <motion.div
               ref={pumpkinScope}
               onClick={handleClick}
               onDoubleClick={handleDoubleClick}
+              className="pointer-events-none"
             >
-              <PixelPumpkin className="-rotate-20" size={60} />
+              <PixelPumpkin className="pointer-events-none -rotate-20 z-10" size={PUMPKIN_SIZE} />
             </motion.div>
           </div>
         </div>
         <div style={{ width: "97.8%" }} className="absolute bottom-0">
-          <div className="relative h-[70px] z-100">
+          <div className="relative h-[70px] z-9">
             {walkingCharacters.map((character) => (
               <WalkingCharacter
                 key={character.character.name}

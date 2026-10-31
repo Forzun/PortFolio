@@ -1136,7 +1136,8 @@ export default function PixelPumpkin({ size = 360, className, style }: Props) {
       aria-label="Pixel art jack-o'-lantern"
     >
       <style>{`
-        .pixel-pumpkin { cursor: pointer; overflow: visible; }
+        .pixel-pumpkin { cursor: pointer; overflow: visible; pointer-events: none; }
+        .pixel-pumpkin rect { pointer-events: auto; }
 
         .pixel-pumpkin .face {
           fill: ${COLORS.faceOff};
