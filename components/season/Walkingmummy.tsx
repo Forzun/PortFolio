@@ -28,6 +28,7 @@ type Props = {
   duration?: number;
   facing?: "left" | "right";
   className?: string;
+  paused?: boolean;
 };
 
 const VB_X = 20;
@@ -50,6 +51,7 @@ export default function WalkingMummy({
   duration = 14,
   facing = "right",
   className,
+  paused = false,
 }: Props) {
   const width = (height * VB_W) / VB_H;
 
@@ -60,13 +62,20 @@ export default function WalkingMummy({
   } as React.CSSProperties;
 
   return (
-    <div className={`wm-track ${className ?? ""}`} style={trackStyle}>
+    <div
+      className={`wm-track ${className ?? ""}`}
+      style={trackStyle}
+      data-paused={paused}
+    >
       <style>{`
         .wm-track {
           position: relative;
           width: 100%;
           overflow: hidden;
           container-type: inline-size;
+        }
+        .wm-track[data-paused="true"] * {
+          animation-play-state: paused;
         }
         .wm-walker {
           position: absolute;

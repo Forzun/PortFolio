@@ -28,6 +28,7 @@ type Props = {
   duration?: number;
   facing?: "left" | "right";
   className?: string;
+  paused?: boolean;
 };
 
 const VB_X = 20;
@@ -49,6 +50,7 @@ export default function WalkingVampire({
   duration = 14,
   facing = "right",
   className,
+  paused = false,
 }: Props) {
   const width = (height * VB_W) / VB_H;
 
@@ -59,13 +61,20 @@ export default function WalkingVampire({
   } as React.CSSProperties;
 
   return (
-    <div className={`wv-track ${className ?? ""}`} style={trackStyle}>
+    <div
+      className={`wv-track ${className ?? ""}`}
+      style={trackStyle}
+      data-paused={paused}
+    >
       <style>{`
         .wv-track {
           position: relative;
           width: 100%;
           overflow: hidden;
           container-type: inline-size;
+        }
+        .wv-track[data-paused="true"] * {
+          animation-play-state: paused;
         }
         .wv-walker {
           position: absolute;

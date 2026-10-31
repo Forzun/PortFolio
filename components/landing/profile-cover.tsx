@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion, useAnimate } from "motion/react";
 import { useSound } from "@web-kits/audio/react";
-import { useRef, type ComponentType } from "react";
+import { useRef, useState, type ComponentType } from "react";
 import PixelPumpkin from "../season/pumkin";
 import WalkingMummy from "../season/Walkingmummy";
 import WalkingVampire from "../characters/Walkingvampire";
@@ -20,6 +20,7 @@ type WalkingCharacterProps = {
     height?: number;
     duration?: number;
     className?: string;
+    paused?: boolean;
   }>;
   height: number;
   duration: number;
@@ -33,31 +34,72 @@ function WalkingCharacter({
   onShake,
 }: WalkingCharacterProps) {
   const [scope, animate] = useAnimate();
+  const [isDragging, setIsDragging] = useState(false);
+  const [isShaking, setIsShaking] = useState(false);
+  const justDragged = useRef(false);
+  const shakeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleShake = () => {
+  const shake = () => {
+    if (justDragged.current) return;
     onShake();
+    setIsShaking(true);
     animate(
       scope.current,
-      {
-        x: [0, -12, 12, -9, 9, 0],
-        y: [0, -8, 0, -4, 0, 0],
-        rotate: [0, -5, 5, -3, 3, 0],
-      },
-      { duration: 0.6, ease: "easeInOut" },
-    );
+      { x: [0, -4, 4, -3, 3, -2, 2, 0] },
+      { duration: 0.4, ease: "easeInOut" },
+    ).then(() => setIsShaking(false));
+  };
+
+  const handleClick = () => {
+    if (justDragged.current || shakeTimer.current) return;
+    shakeTimer.current = setTimeout(() => {
+      shakeTimer.current = null;
+      shake();
+    }, 200);
+  };
+
+  const handleDoubleClick = () => {
+    if (shakeTimer.current) {
+      clearTimeout(shakeTimer.current);
+      shakeTimer.current = null;
+    }
+    shake();
+  };
+
+  const handleDragStart = () => {
+    justDragged.current = true;
+    setIsDragging(true);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+    animate(
+      scope.current,
+      { x: 0, y: 0 },
+      { type: "spring", stiffness: 300, damping: 24 },
+    ).then(() => {
+      justDragged.current = false;
+    });
   };
 
   return (
     <motion.div
       ref={scope}
-      onClick={handleShake}
+      onClick={handleClick}
+      onDoubleClick={handleDoubleClick}
+      drag
+      dragMomentum={false}
+      dragElastic={0.15}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
       className="pointer-events-none absolute inset-0"
       style={{ transformOrigin: "bottom center" }}
     >
       <Component
         height={height}
         duration={duration}
-        className="pointer-events-none [&_.wm-walker]:pointer-events-auto [&_.wm-walker]:cursor-pointer [&_.wv-walker]:pointer-events-auto [&_.wv-walker]:cursor-pointer"
+        paused={isDragging || isShaking}
+        className="pointer-events-none [&_.wm-walker]:pointer-events-auto [&_.wm-walker]:cursor-grab [&_.wm-walker]:active:cursor-grabbing [&_.wv-walker]:pointer-events-auto [&_.wv-walker]:cursor-grab [&_.wv-walker]:active:cursor-grabbing"
       />
     </motion.div>
   );
@@ -127,11 +169,8 @@ export default function ProfileCover() {
             </motion.div>
           </div>
         </div>
-        <div
-          style={{ width: "97.8%" }}
-          className="absolute bottom-0"
-        >
-          <div className="relative h-[70px]">
+        <div style={{ width: "97.8%" }} className="absolute bottom-0">
+          <div className="relative h-[70px] z-100">
             {walkingCharacters.map((character) => (
               <WalkingCharacter
                 key={character.character.name}

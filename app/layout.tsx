@@ -33,7 +33,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${hankenGrotesk.className} ${instrumentSerif.variable} antialiased [--pattern-fg:var(--color-neutral-950)]/5`}
+          className={`${hankenGrotesk.className} ${instrumentSerif.variable} antialiased [--pattern-fg:var(--color-neutral-950)]/5  selection:bg-neutral-400 selection:text-white`}
         >
           <SoundProvider>
             <Toaster position="top-center" />
