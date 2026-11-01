@@ -15,8 +15,15 @@ interface ContributionsData {
 }
 
 const explicitTheme = {
-  light: ["#f0f0f0", "#c4edde", "#7ac7c4", "#f73859", "#384259"],
-  dark: ["#383838", "#4D455D", "#7DB9B6", "#F5E9CF", "#E96479"],
+  // light: ["#f0f0f0", "#c4edde", "#7ac7c4", "#f73859", "#384259"],
+  light: ["#F1F1F1", "#FFE0CC", "#FFC199", "#FF9E5C", "#FF6D00"],
+  // light: [
+  //   "#272729", // No activity
+  //   "#663001", // Low
+  //   "#994301", // Medium
+  //   "#CC5701", // High
+  //   "#FF7D00", // Highest — your main color
+  // ],
 };
 
 export default function Github({ username }: { username?: string }) {
@@ -57,6 +64,8 @@ export default function Github({ username }: { username?: string }) {
         loading={loading}
         blockMargin={2}
         colorScheme="light"
+        theme={explicitTheme}
+        blockRadius={7}
       />
     </div>
   );

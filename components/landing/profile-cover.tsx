@@ -117,7 +117,7 @@ export default function ProfileCover() {
 
   const playCrash = useSound({
     source: { type: "sample", url: "/sound/crash.mp3" },
-    gain: 0.3,
+    gain: 0.6,
   });
 
   const shakePumpkin = () => {
@@ -184,7 +184,7 @@ export default function ProfileCover() {
                 Component={character.character}
                 height={character.height}
                 duration={character.duration}
-                onShake={playPop}
+                onShake={() => {}}
               />
             ))}
           </div>
