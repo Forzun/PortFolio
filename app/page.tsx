@@ -6,6 +6,7 @@ import ProfileCover from "@/components/landing/profile-cover";
 
 import Projects from "@/components/projects";
 import Scales from "@/components/scales";
+import Quote from "@/components/sections/quote-section";
 import TestimonialsUpDown from "@/components/testimonials/UpDownTestimonials";
 import { projects } from "@/constants/project";
 
@@ -20,6 +21,7 @@ export default function Home() {
         <LandingBlogs />
         <TestimonialsUpDown />
         <Github />
+        <Quote />
       </Container>
     </div>
   );
