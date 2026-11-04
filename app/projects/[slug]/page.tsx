@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Container from "@/components/container";
+import GithubReadme from "@/components/github-readme";
 import SubHeading from "@/components/SubHeading";
 import { projects } from "@/constants/project";
 
@@ -99,6 +100,15 @@ export default async function ProjectPage({
             <ExternalLink className="h-4 w-4" />
           </Link>
         </div>
+
+        {project.repo ? (
+          <section className="mt-12 border-t border-neutral-200 px-4 pt-10 dark:border-neutral-800">
+            <h2 className="mb-6 text-2xl font-semibold tracking-tight">
+              README
+            </h2>
+            <GithubReadme repo={project.repo} />
+          </section>
+        ) : null}
       </Container>
     </div>
   );

@@ -17,51 +17,63 @@ export type Projects = {
   href: string;
   description: string;
   video?: string;
+  repo?: string;
 };
 
 export type Skills = {
-  label: string; 
-  icon: string | (() => JSX.Element) }
+  label: string;
+  icon: string | (() => JSX.Element);
+};
 
 export const projects: Projects[] = [
   {
     title: "Goo",
     slug: "goo",
-    src: "/projects/landing-page/goo.webp", 
-    description: "Goo CLI — An open-source AI coding CLI powered by local Ollama models with RAG-based memory",
-    href: "https://github.com/Forzun/nexStack", 
-    video: '/projects/videos/GooCli.mp4'
+    src: "/projects/landing-page/goo.webp",
+    description:
+      "Goo CLI — An open-source AI coding CLI powered by local Ollama models with RAG-based memory",
+    href: "https://github.com/Forzun/GooGo",
+    repo: "Forzun/GooGo",
+    video: "/projects/videos/GooCli.mp4",
   },
   {
     title: "nexStack",
     slug: "nexstack",
-    src: "/projects/landing-page/nexStack.webp", 
-    description: "NexStack helps you monitor your websites in real time with instant uptime tracking, performance checks, and smart alerts.",
-    href: "https://github.com/Forzun/nexStack", 
-    video: '/projects/videos/nexStack.mp4'
+    src: "/projects/landing-page/nexStack.webp",
+    description:
+      "NexStack helps you monitor your websites in real time with instant uptime tracking, performance checks, and smart alerts.",
+    href: "https://github.com/Forzun/nexStack",
+    repo: "Forzun/nexStack",
+    video: "/projects/videos/nexStack.mp4",
   },
   {
     title: "DotDraw",
     slug: "dotdraw",
     src: "/projects/landing-page/dotDraw.webp",
-    description: "A realtime collaborative whiteboard where everyone can draw, resize, move shapes, and see live cursors instantly — just like Figma, but built from scratch", 
-    href:"https://github.com/Forzun/dotDraw",
-    video: "/projects/videos/dotDraw.mp4"
+    description:
+      "A realtime collaborative whiteboard where everyone can draw, resize, move shapes, and see live cursors instantly — just like Figma, but built from scratch",
+    href: "https://github.com/Forzun/dotDraw",
+    repo: "Forzun/dotDraw",
+    video: "/projects/videos/dotDraw.mp4",
   },
   {
-    title:"Context-mini", 
+    title: "Context-mini",
     slug: "context-mini",
-    src:"/projects/landing-page/context-mini.webp", 
-    description: "Context-mini — Turning raw context into intelligent conversations with AI that actually understands your content, not just your prompts.",
-    href: "https://github.com/Forzun/context-mini", 
-    video: "/projects/videos/context.mp4" 
+    src: "/projects/landing-page/context-mini.webp",
+    description:
+      "Context-mini — Turning raw context into intelligent conversations with AI that actually understands your content, not just your prompts.",
+    href: "https://github.com/Forzun/context-mini",
+    repo: "Forzun/context-mini",
+    video: "/projects/videos/context.mp4",
   },
   {
-    title: "Nexus", 
+    title: "Nexus",
     slug: "nexus",
-    src: "/projects/landing-page/nexus.webp", 
-    description:"Nexus is a modern note-taking and second-brain application that helps users create, organize, and refine notes with AI-powered assistance, making knowledge management faster, smarter, and more efficient.", 
-    href:"https://nexus-5c3w.vercel.app/",
+    src: "/projects/landing-page/nexus.webp",
+    description:
+      "Nexus is a modern note-taking and second-brain application that helps users create, organize, and refine notes with AI-powered assistance, making knowledge management faster, smarter, and more efficient.",
+    href: "https://nexus-5c3w.vercel.app/",
+    repo: "Forzun/Nexus",
   },
   {
     title: "MindMesh",
@@ -70,13 +82,15 @@ export const projects: Projects[] = [
     description:
       "MindMesh might be your next second brain you can save anything you find on website and i know you haven't visited it yet so click it and goo",
     href: "https://mind-mesh-ochre.vercel.app/dashboard",
+    repo: "Forzun/MindMesh",
   },
   {
-    title: "Whisper-AI", 
+    title: "Whisper-AI",
     slug: "whisper-ai",
-    src:"/projects/landing-page/whisper-ai.webp", 
-    description:"Whisper-AI is an AI-powered tool that helps users refine and enhance tweets by improving clarity, tone, and engagement, enabling faster creation of polished and impactful social media content.", 
-    href:"https://whisper-ai-rose.vercel.app/"
+    src: "/projects/landing-page/whisper-ai.webp",
+    description:
+      "Whisper-AI is an AI-powered tool that helps users refine and enhance tweets by improving clarity, tone, and engagement, enabling faster creation of polished and impactful social media content.",
+    href: "https://whisper-ai-rose.vercel.app/",
   },
   {
     title: "WinChat",
@@ -96,76 +110,77 @@ export const projects: Projects[] = [
   },
 
   {
-    title:"eclypse", 
+    title: "eclypse",
     slug: "eclypse",
-    src: "/projects/landing-page/eclypse.webp", 
-    description:"Eclypse is a fashion and styling platform that helps users explore outfit ideas, discover trends, and visualize dressing styles through a modern and intuitive interface.", 
-    href:"https://eclypse-833s.vercel.app/"
+    src: "/projects/landing-page/eclypse.webp",
+    description:
+      "Eclypse is a fashion and styling platform that helps users explore outfit ideas, discover trends, and visualize dressing styles through a modern and intuitive interface.",
+    href: "https://eclypse-833s.vercel.app/",
   },
   {
-    title:"MovieRating", 
+    title: "MovieRating",
     slug: "movierating",
-    src: "/projects/landing-page/movierating.webp", 
-    description: "Just an movies rating plateform where your can see", 
-    href:"https://movie-app-plum-ten.vercel.app"
+    src: "/projects/landing-page/movierating.webp",
+    description: "Just an movies rating plateform where your can see",
+    href: "https://movie-app-plum-ten.vercel.app",
   },
   {
-    title:"SoftSell", 
+    title: "SoftSell",
     slug: "softsell",
-    src:"/projects/landing-page/softsell.webp", 
-    description:"Frontend of an website selling application where you can buy and purchase website", 
-    href:"https://soft-sell-h95b.vercel.app/"
-  }
+    src: "/projects/landing-page/softsell.webp",
+    description:
+      "Frontend of an website selling application where you can buy and purchase website",
+    href: "https://soft-sell-h95b.vercel.app/",
+  },
 ];
-
 
 export const skills: Skills[] = [
   {
     label: "JavaScript",
-    icon: Typescript 
+    icon: Typescript,
   },
   {
     label: "TyepScript",
-    icon: TypeScript 
+    icon: TypeScript,
   },
   {
     label: "React",
-    icon:  ReactIcon 
+    icon: ReactIcon,
   },
   {
     label: "Node.js",
-    icon: NodeJs
+    icon: NodeJs,
   },
   {
     label: "Express",
-    icon: Express  
+    icon: Express,
   },
   {
     label: "Prisma",
-    icon: Prisma 
+    icon: Prisma,
   },
   {
     label: "Postsql",
-    icon:  Postsql 
+    icon: Postsql,
   },
   {
     label: "Turborepo",
-    icon:  Turborepo  
+    icon: Turborepo,
   },
   {
     label: "TailwindCss",
-    icon:  Tailwindcss 
+    icon: Tailwindcss,
   },
   {
     label: "Git",
-    icon: githubIcon 
+    icon: githubIcon,
   },
   {
     label: "WebSockets",
-    icon: Websocket 
+    icon: Websocket,
   },
   {
     label: "MongoDb",
-    icon: Mongodb  
+    icon: Mongodb,
   },
 ];

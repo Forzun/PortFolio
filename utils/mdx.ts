@@ -28,7 +28,7 @@ function getNodeText(node: any): string {
   return "";
 }
 
-function rehypeShikiPlugin() {
+export function rehypeShikiPlugin() {
   return async (tree: any) => {
     const { visit } = await import("unist-util-visit");
     const preNodes: { node: any; index: number; parent: any }[] = [];
