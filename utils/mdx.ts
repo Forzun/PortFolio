@@ -59,7 +59,7 @@ export function rehypeShikiPlugin() {
         const hast = await codeToHast(rawCode.trimEnd(), {
           lang,
           themes: {
-            light: "github-light",
+            light: "gruvbox-light-medium",
             dark: "github-dark",
           },
           defaultColor: false,

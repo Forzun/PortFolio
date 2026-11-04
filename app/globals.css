@@ -91,3 +91,10 @@ pre.shiki span {
   height: 70px;
 }
 
+.tree-wrapper {
+  --ht-tree: #0b0912;  /* tree color */
+  --ht-rim:  #5f7fbf;  /* outline */
+  --ht-web:  #d9d2ee;  /* web and thread; use a gray like #6b6b6b on light pages */
+  --ht-eye:  #ffa21a;  /* owl eyes */
+  --ht-face: #ff6a1f;  /* glowing face */
+}

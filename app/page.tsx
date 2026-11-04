@@ -3,6 +3,7 @@ import Github from "@/components/github-bar";
 import Hero from "@/components/Hero";
 import LandingBlogs from "@/components/landing-blogs";
 import ProfileCover from "@/components/landing/profile-cover";
+import Landing from "@/components/layout/landing";
 
 import Projects from "@/components/projects";
 import Scales from "@/components/scales";
